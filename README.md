@@ -1,1 +1,3 @@
 # advent-of-code
+
+To add a solution for a new day, copy the `template` folder to the `{year}` directory and rename it `Day{day}`. Download `input.txt` for that day from the Advent of Code website into the directory, and optionally copy the test input into `test.txt` as well. Then, define two methods `part1()` and `part2()` in `{name}.py`, and run `python advent.py -n {name} -y {year} -d {day}` from the root directory. You can also use the `-t` flag to run only on the test input.
