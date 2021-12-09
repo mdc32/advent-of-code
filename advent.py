@@ -17,7 +17,7 @@ if __name__ == "__main__":
     action='store_true')
   args=parser.parse_args()
 
-  path = f'{now.year}/Day{day}/'
+  path = f'{args.year}/Day{args.day}/'
 
   # import module for given day and year, with today (eastern) as default
   module = importlib.import_module(f'{path.replace("/",".")}miles')
