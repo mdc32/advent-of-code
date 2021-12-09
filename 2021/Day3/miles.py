@@ -3,11 +3,9 @@ from functools import reduce
 
 
 def part1(filename: str) -> int:
-  lines = [list(map(int, list(x))) for x in to_lines(filename)]
-  l = len(lines[0])
-  print([mcv([x[i:i+1] for x in lines]) for i in range(l)])
-  v = int(''.join([str(mcv([x[i:i+1] for x in lines])) for i in range(l)]),2)
-  return v* (2**l-v-1)
+  t = [*zip(*[list(n) for n in to_lines(filename)])]
+  v = int(''.join([str(mcv(x)) for x in t]),2)
+  return v*(2**len(t)-v-1)
 
 
 
