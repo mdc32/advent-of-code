@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
   # set up command line arguments
   parser=argparse.ArgumentParser()
-  parser.add_argument('-n', '--name', default="miles")
+  parser.add_argument('-n', '--name', default="miles", help="run NAME.py (default = miles)")
   parser.add_argument('-d', '--day', default=day)
   parser.add_argument('-y', '--year', default=now.year)
   parser.add_argument('-t', '--test', help="run test instead of input",
@@ -20,7 +20,7 @@ if __name__ == "__main__":
   path = f'{args.year}/Day{args.day}/'
 
   # import module for given day and year, with today (eastern) as default
-  module = importlib.import_module(f'{path.replace("/",".")}miles')
+  module = importlib.import_module(f'{path.replace("/",".")}{args.name}')
 
   # -t flag is used to run test input, otherwise real input is used
   filename = "test.txt" if args.test else "input.txt"
