@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
   now = datetime.now()
   # i am lazy and this changes to eastern from pacific
-  day = now.day + 0 if now.hour < 21 else 1
+  day = now.day + (0 if now.hour < 21 else 1)
 
   # set up command line arguments
   parser=argparse.ArgumentParser()
