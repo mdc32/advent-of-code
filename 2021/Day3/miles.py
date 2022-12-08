@@ -1,20 +1,20 @@
 from helpers import *
-from functools import reduce
-
 
 def part1(filename: str) -> int:
-  t = [*zip(*[list(n) for n in to_lines(filename)])]
-  g = int(''.join([str(mcb(x)) for x in t]),2)
-  return g*(2**len(t)-g-1)
+  t = to_lines(filename)
+  g =  int(''.join("1" if ith_sum(t,i) >= len(t)//2 else "0" for i in range(len(t[0]))), 2)
+  return g*(2**len(t[0])-g-1)
 
 def part2(filename: str) -> int:
-  lines = to_lines(filename)
+  t = to_lines(filename)
+  a=b=""
 
-  while len(lines) > 1:
-    newlines = [line for line in lines if]
+  for i in range(len(t[0])):
+    aa = [l for l in t if l.startswith(a)]
+    bb = [l for l in t if l.startswith(b)]
+    a += aa[0][i] if len(aa)==1 else ("1" if ith_sum(aa,i) >= len(aa)/2 else "0")
+    b += bb[0][i] if len(bb)==1 else ("0" if ith_sum(bb,i) >= len(bb)/2 else "1")
+  return int(a,2)*int(b,2)
 
-def mcb(lines):
-  return 1 if sum([int(x[0]) for x in lines]) >= len(lines)/2 else 0
-
-def lcb(lines):
-  return 0 if sum([int(x[0]) for x in lines]) >= len(lines)/2 else 1
+def ith_sum(lines, i):
+  return sum(int(x[i]) for x in lines)
